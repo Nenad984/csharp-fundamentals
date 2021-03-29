@@ -4,16 +4,13 @@ namespace HelloCS
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Hello World!");
 
-            int z;
             var person = new Person("Nenad", 25);
 
-
             Console.WriteLine(person.Name);
-
 
         }
 
