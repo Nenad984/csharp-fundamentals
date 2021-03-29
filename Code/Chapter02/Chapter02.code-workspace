@@ -4,7 +4,10 @@
       "path": "..\\.."
     },
     {
-      "path": "..\\Variables"
+      "path": "Basics"
+    },
+    {
+      "path": "Variables"
     }
   ],
   "settings": {}
