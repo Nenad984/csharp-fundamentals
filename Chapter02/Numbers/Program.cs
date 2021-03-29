@@ -21,7 +21,7 @@ namespace Numbers
             int hexadecimalNotation = 0x_001E_8480;
 
             Console.WriteLine($"{ decimalNotation == binaryNotation }");
-            
+
             Console.WriteLine($"{ decimalNotation == hexadecimalNotation }");
 
             Console.WriteLine($"int uses {sizeof(int)} bytes and can store numbers in the range {int.MinValue:N0} to {int.MaxValue:N0}.");
