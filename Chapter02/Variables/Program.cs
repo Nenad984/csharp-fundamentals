@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Variables
 {
@@ -34,6 +35,8 @@ namespace Variables
             Console.WriteLine($"default(string) = {default(string)} ");
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             Console.WriteLine(keyInfo.Key.ToString());
+
+            List
         }
     }
 }
