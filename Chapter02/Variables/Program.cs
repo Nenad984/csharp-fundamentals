@@ -21,6 +21,18 @@ namespace Variables
 
             Console.WriteLine(length);
 
+            var population = 66_000_000;
+            var weight = 1.88;
+            var price = 4.99M;
+            var fruit = "Apples";
+            var letter = 'Z';
+            var happy = true;
+          //  var xml2 = new XmlDocument();
+            Console.WriteLine($"default(int) = {default(int)} ");
+            Console.WriteLine($"default(bool) = {default(bool)} ");
+            Console.WriteLine($"default(DateTime) = {default(DateTime)} ");
+            Console.WriteLine($"default(string) = {default(string)} ");
+
         }
     }
 }
