@@ -37,6 +37,11 @@ namespace Variables
             Console.WriteLine(keyInfo.Key.ToString());
 
             List<int> names = new List<int>{1,2,3};
+
+            foreach(var n in names)
+            {
+                Console.WriteLine(n);
+            }
             
         }
     }
