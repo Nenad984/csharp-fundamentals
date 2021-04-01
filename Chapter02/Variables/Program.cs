@@ -37,6 +37,7 @@ namespace Variables
             Console.WriteLine(keyInfo.Key.ToString());
 
             List<int> names = new List<int>{1,2,3};
+            
         }
     }
 }
