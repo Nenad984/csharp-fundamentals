@@ -32,7 +32,8 @@ namespace Variables
             Console.WriteLine($"default(bool) = {default(bool)} ");
             Console.WriteLine($"default(DateTime) = {default(DateTime)} ");
             Console.WriteLine($"default(string) = {default(string)} ");
-
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            Console.WriteLine(keyInfo.Key.ToString());
         }
     }
 }
