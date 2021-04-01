@@ -36,7 +36,7 @@ namespace Variables
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             Console.WriteLine(keyInfo.Key.ToString());
 
-            List
+            List<int> names = new List<int>{1,2,3};
         }
     }
 }
