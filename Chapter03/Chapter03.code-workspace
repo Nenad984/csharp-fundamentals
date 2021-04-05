@@ -1,11 +1,23 @@
 {
   "folders": [
-    {
-      "path": "."
-    },
-    {
-      "path": "Operators"
-    }
-  ],
+	{
+		"path": ".."
+	},
+	{
+		"path": "BooleanOperators"
+	},
+	{
+		"path": "BitwiseAndShiftOperators"
+	},
+	{
+		"path": "SelectionStatements"
+	},
+	{
+		"path": "IterationStatements"
+	},
+	{
+		"path": "CastingConverting"
+	}
+],
   "settings": {}
 }
