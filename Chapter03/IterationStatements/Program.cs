@@ -35,7 +35,20 @@ namespace IterationStatements
                 WriteLine("Correct!");
             }
 
+            // looping with for statement
+            for (int y = 1; y < 10; y++)
+            {
+                WriteLine(y);
+            }
 
+
+            string[] names = { "Adam", "Barry", "Charlie" };
+
+            // looping with foreach statement
+            foreach (string name in names)
+            {
+                WriteLine($" {name} has {name.Length} characters.");
+            }
 
         }
     }
