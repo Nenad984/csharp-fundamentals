@@ -32,7 +32,7 @@ namespace PeopleApp
                 format: "{0}'s first child is named \"{1}\".",
                 arg0: harry.Name,
                 arg1: harry.Children[0].Name);
-            
+
             WriteLine($"5! is {Person.Factorial(5)}");
 
             harry.Shout += Harry_Shout;
@@ -45,7 +45,7 @@ namespace PeopleApp
 
             harry.Poke();
 
-            Person[] people = 
+            Person[] people =
             {
                 new Person { Name="Simon" },
                 new Person { Name="Jenny" },
@@ -55,7 +55,7 @@ namespace PeopleApp
 
             WriteLine("Initial list of people:");
 
-            foreach(var person in people)
+            foreach (var person in people)
             {
                 WriteLine($"{person.Name}");
             }
@@ -64,7 +64,7 @@ namespace PeopleApp
 
             Array.Sort(people);
 
-            foreach(var person in people)
+            foreach (var person in people)
             {
                 WriteLine($"{person.Name}");
             }
@@ -72,10 +72,10 @@ namespace PeopleApp
             WriteLine("Use PersonComparer's IComparer implementation to sort:");
 
             Array.Sort(people, new PersonComparer());
-            
+
             foreach (var person in people)
             {
-                 WriteLine($"{person.Name}");
+                WriteLine($"{person.Name}");
             }
 
             var t1 = new Thing();
@@ -114,8 +114,56 @@ namespace PeopleApp
                 arg0: number2,
                 arg1: Squarer.Square(number2));
 
+            var dv1 = new DisplacementVector(3, 5);
+            var dv2 = new DisplacementVector(-2, 7);
 
-            
+            var dv3 = dv1 + dv2;
+
+            WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, {dv3.Y})");
+
+            Employee john = new Employee
+            {
+                Name = "John Jones",
+                DateOfBirth = new DateTime(1990, 7, 28)
+            };
+
+            john.WriteToConsole();
+
+            john.EmployeeCode = "JJ001";
+            john.HireDate = new DateTime(2014, 11, 23);
+
+            WriteLine($"{john.Name} was hired on {john.HireDate: dd/MM/yy}");
+
+            WriteLine(john.ToString());
+
+            Employee aliceInEmployee = new Employee { Name = "Alice", EmployeeCode = "AA123" };
+
+            Person aliceInPerson = aliceInEmployee;
+
+            aliceInEmployee.WriteToConsole();
+
+            aliceInPerson.WriteToConsole();
+
+            WriteLine(aliceInEmployee.ToString());
+
+            WriteLine(aliceInPerson.ToString());
+
+            Employee explicitAlice = (Employee)aliceInPerson;
+
+            if (aliceInPerson is Employee)
+            {
+                WriteLine($"{nameof(aliceInPerson)} IS an Employee");
+            }
+
+            Employee aliceAsEmployee = aliceInPerson as Employee;
+
+            if (aliceAsEmployee != null)
+            {
+                WriteLine($"{nameof(aliceInPerson)} AS an Employee");
+            }
+
+
+
         }
 
         public static void Harry_Shout(object sender, EventArgs e)
