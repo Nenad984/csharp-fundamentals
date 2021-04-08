@@ -5,15 +5,21 @@ using static System.Console;
 
 namespace MyLibrary.Shared
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         // fields 
         public string Name;
         public DateTime DateOfBirth;
         public List<Person> Children = new List<Person>();
 
-        // methods
-        public void WriteToConsole()
+        // event delegate field
+        public event EventHandler Shout;
+
+        public int AngerLevel;
+
+		
+		// methods
+		public void WriteToConsole()
         {
             WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
         }
@@ -61,5 +67,23 @@ namespace MyLibrary.Shared
                 return localNumber * localFactorial(localNumber - 1);
             }
         }
+
+        public void Poke()
+        {
+            AngerLevel++;
+            
+            if(AngerLevel > 3)
+            {
+                if(Shout != null)
+                {
+                    Shout(this,EventArgs.Empty);
+                }
+            }
+        }
+
+       public int CompareTo(Person other)
+       {
+            return Name.CompareTo(other.Name);
+       }
     }
 }
