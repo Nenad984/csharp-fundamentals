@@ -14,7 +14,28 @@ namespace WorkingWithText
 
             WriteLine($"First char is {city[0]} and third is {city[2]}.");
 
-            
+            string cities = "Paris,Berlin,Madrid,New York";
+
+            string[] citiesArray = cities.Split(",");
+
+            foreach(var item in citiesArray)
+            {
+                WriteLine(item);
+            }
+
+            string fullName = "Alan Jones";
+
+            int indexOfTheSpace = fullName.IndexOf(" ");
+
+            string firstName = fullName.Substring(0, indexOfTheSpace);
+
+            string lastName = fullName.Substring(indexOfTheSpace + 1);
+
+            WriteLine($"{lastName}, {firstName}");
+
+            string company = "Microsoft";
+
+            bool startsWithM = company.StartsWith("M");
 
         }
     }
