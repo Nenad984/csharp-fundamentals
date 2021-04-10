@@ -26,6 +26,9 @@
     },
     {
       "path": "WorkingWithNetworkResourse"
+    },
+    {
+      "path": "WorkingWithReflection"
     }
   ],
   "settings": {}
