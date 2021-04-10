@@ -29,6 +29,9 @@
     },
     {
       "path": "WorkingWithReflection"
+    },
+    {
+      "path": "Internationalization"
     }
   ],
   "settings": {}
