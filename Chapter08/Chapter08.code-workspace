@@ -20,6 +20,12 @@
     },
     {
       "path": "WorkingWithRanges"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "WorkingWithNetworkResourse"
     }
   ],
   "settings": {}
