@@ -103,6 +103,7 @@ namespace CryptographyLib
         Name = username,
         Salt = saltText,
         SaltedHashedPassword = saltedhashedPassword,
+        Roles = roles
       };
       Users.Add(user.Name, user);
 
@@ -230,7 +231,7 @@ namespace CryptographyLib
       return data;
     }
 
-   /* public static void LogIn(string username, string password)
+    public static void LogIn(string username, string password)
     {
       if (CheckPassword(username, password))
       {
@@ -240,6 +241,6 @@ namespace CryptographyLib
 
         System.Threading.Thread.CurrentPrincipal = principal;
       }
-    }*/
+    }
   }
 }
