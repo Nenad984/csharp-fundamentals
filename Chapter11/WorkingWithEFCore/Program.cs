@@ -1,4 +1,7 @@
 ﻿using System;
+using static System.Console;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace WorkingWithEFCore
 {
@@ -6,7 +9,7 @@ namespace WorkingWithEFCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
