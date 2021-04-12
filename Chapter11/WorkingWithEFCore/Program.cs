@@ -1,12 +1,7 @@
 ﻿using System;
-
-using static System.Console;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-
 using MyLibraary.Share;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 using static System.Console;
 
