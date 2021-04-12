@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WorkingWithEFCore
+namespace MyLibraary.Share
 {
-    public class Category
+    public class Product
     {
         public int ProductID { get; set; }
 
