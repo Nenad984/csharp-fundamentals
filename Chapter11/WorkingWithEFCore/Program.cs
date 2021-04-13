@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using MyLibrary.Share;
+using Microsoft.EntityFrameworkCore.Infrastructure; 
+using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.Logging;
 
 using static System.Console;
 
@@ -12,14 +15,18 @@ namespace WorkingWithEFCore
     {
         static void Main(string[] args)
         {
-            QueryingProducts();
-            // QueryingCategories();
+           // QueryingProducts();
+             QueryingCategories();
         }
 
         static void QueryingCategories()
         {
             using (var db = new Northwind())
             {
+                var loggerFactory = db.GetService<ILoggerFactory>(); 
+                
+                loggerFactory.AddProvider(new ConsoleLoggerProvider());
+                
                 WriteLine("Categories and how many products they have:");
 
                 IQueryable<Category> cats = db.Categories.Include(c => c.Products);
@@ -36,8 +43,14 @@ namespace WorkingWithEFCore
 
             using (var db = new Northwind())
             {
+                var loggerFactory = db.GetService<ILoggerFactory>(); 
+                
+                loggerFactory.AddProvider(new ConsoleLoggerProvider());
+                
                 WriteLine("Products that cost more than a price, highest at top.");
+                
                 string input; 
+                
                 int price; 
                 
                 do
