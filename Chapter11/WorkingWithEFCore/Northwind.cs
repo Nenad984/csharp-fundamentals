@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace MyLibrary.Share
 {
@@ -14,7 +14,7 @@ namespace MyLibrary.Share
             string path = System.IO.Path.Combine(
                 System.Environment.CurrentDirectory, "Northwind.db");
 
-            optionsBuilder.UseSqlite($"Filename={path}");     
+            optionsBuilder.UseLazyLoadingProxies().UseSqlite($"Filename={path}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +23,9 @@ namespace MyLibrary.Share
                 .Property(category => category.CategoryName)
                 .IsRequired() // NOT NULL
                 .HasMaxLength(15);
+
+            modelBuilder.Entity<Product>()
+                .HasQueryFilter(p => !p.Discontinued);
         }
     }
 }
