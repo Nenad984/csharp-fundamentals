@@ -12,7 +12,7 @@ namespace MyLibraary.Share
         public string ProductName { get; set; }
 
         [Column("UnitPrice", TypeName = "money")]
-        public decimal? Cost { get; set; }
+        public double? Cost { get; set; }
 
         [Column("UnitsInStock")]
         public short? Stock { get; set; }
@@ -23,6 +23,6 @@ namespace MyLibraary.Share
 
         public virtual Category Category { get; set; }
 
-        
+
     }
 }

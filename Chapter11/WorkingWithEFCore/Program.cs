@@ -12,8 +12,8 @@ namespace WorkingWithEFCore
     {
         static void Main(string[] args)
         {
-           // QueryingProducts();
-           // QueryingCategories();
+            QueryingProducts();
+            // QueryingCategories();
         }
 
         static void QueryingCategories()
@@ -33,31 +33,27 @@ namespace WorkingWithEFCore
 
         static void QueryingProducts()
         {
-            using(var db = new Northwind())
+
+            using (var db = new Northwind())
             {
                 WriteLine("Products that cost more than a price, highest at top.");
+                string input; 
+                int price; 
                 
-                string input;
-                
-                decimal price;
-
                 do
                 {
-                    Write("Enter a product price: ");
-
+                   
+                    Write("Enter a product price: "); 
                     input = ReadLine();
+                
+                } while (!int.TryParse(input, out price));
+                
+                IQueryable<Product> prods = db.Products.Where(product => product.Cost > price).OrderByDescending(product => product.Cost);
 
-                }while(!decimal.TryParse(input, out price));
-
-
-                IQueryable<Product> prods = db.Products
-                                            .Where(product => product.Cost > price)
-                                            .OrderByDescending(product => product.Cost);
-               foreach(Product item in prods)
-               {
-                   WriteLine("{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
-                    item.ProductID, item.ProductName, item.Cost, item.Stock);
-               }                             
+                foreach (Product item in prods)
+                {
+                    WriteLine("{0}: {1} costs {2:$#,##0.00} and has {3} in stock.", item.ProductID, item.ProductName, item.Cost, item.Stock);
+                }
             }
         }
     }
