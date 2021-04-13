@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace MyLibraary.Share
+namespace MyLibrary.Share
 {
     public class Northwind : DbContext
     {

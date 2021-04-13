@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using MyLibraary.Share;
+using MyLibrary.Share;
 
 using static System.Console;
 

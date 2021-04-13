@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyLibraary.Share
+namespace MyLibrary.Share
 {
     public class Product
     {
