@@ -11,18 +11,21 @@ namespace LinqWithEFCore
     {
         static void Main(string[] args)
         {
-            // FilterAndSort();
+            //FilterAndSort();
            // JoinCategoriesAndProducts();
           // GroupJoinCategoriesAndProducts();
-          AggregateProducts();
+          //AggregateProducts();
+          CustomExtensionMethods();
         }
 
         static void FilterAndSort()
         {
             using (var db = new Northwind())
             {
-                var query = db.Products.Where(product => product.UnitPrice < 10)
-                           // .OrderByDescending(product => product.UnitPrice);
+                var query = db.Products
+                            .ProcessSequence()
+                            .Where(product => product.UnitPrice < 10)
+                           .OrderByDescending(product => product.UnitPrice)
                            .Select(product => new
                            {
                                product.ProductID,
@@ -116,6 +119,30 @@ namespace LinqWithEFCore
                     arg0: "Value of units in stock:",
                     arg1: db.Products.AsEnumerable()
                     .Sum(p => p.UnitPrice * p.UnitsInStock));         
+            }
+        }
+
+        static void CustomExtensionMethods()
+        {
+            using(var db = new Northwind())
+            {
+                WriteLine("Mean units in stock: {0:N0}",
+                    db.Products.Average(p => p.UnitsInStock));
+
+                WriteLine("Mean unit price: {0:$#,##0.00}",
+                    db.Products.Average(p => p.UnitPrice));   
+
+                WriteLine("Median units in stock: {0:N0}",
+                    db.Products.Median(p => p.UnitsInStock)); 
+
+                WriteLine("Median unit price: {0:$#,##0.00}",
+                    db.Products.Median(p => p.UnitPrice)); 
+
+                WriteLine("Mode units in stock: {0:N0}",
+                    db.Products.Mode(p => p.UnitsInStock));
+
+                WriteLine("Mode unit price: {0:$#,##0.00}",
+                    db.Products.Mode(p => p.UnitPrice));           
             }
         }
     }
