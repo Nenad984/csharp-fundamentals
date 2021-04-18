@@ -30,7 +30,6 @@ namespace WorkingWithTasks
 
             WriteLine($"Result: {taskCallWebServiceAndThenStoredProcedure.Result}");
 
-
             WriteLine("Running methods asynchronously on multiple threads.");
 
             // Task taskA = new Task(MethodA);
@@ -40,7 +39,6 @@ namespace WorkingWithTasks
            // Task taskB = Task.Factory.StartNew(MethodB);
 
             //Task taskC = Task.Run(new Action(MethodC)); -->
-
 
             WriteLine($"{timer.ElapsedMilliseconds:#,##0}ms elapsed.");
 

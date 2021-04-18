@@ -28,7 +28,6 @@ namespace AsyncEnumerable
 
             System.Threading.Thread.Sleep(r.Next(1000, 2000));
             yield return r.Next(0, 101);
-
         }
     }
 }
