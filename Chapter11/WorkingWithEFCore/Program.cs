@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 using static System.Console;
 
-
 namespace WorkingWithEFCore
 {
     class Program
@@ -100,7 +99,6 @@ namespace WorkingWithEFCore
 
         static void QueryingProducts()
         {
-
             using (var db = new Northwind())
             {
                 var loggerFactory = db.GetService<ILoggerFactory>();
@@ -115,7 +113,6 @@ namespace WorkingWithEFCore
 
                 do
                 {
-
                     Write("Enter a product price: ");
                     input = ReadLine();
                 } while (!int.TryParse(input, out price));
