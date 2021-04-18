@@ -182,7 +182,6 @@ namespace PeopleApp
             WriteLine("{0} is a valid e-mail address: {1}",
             arg0: email2,
             arg1: email2.IsValidEmail());
-
         }
 
         public static void Harry_Shout(object sender, EventArgs e)

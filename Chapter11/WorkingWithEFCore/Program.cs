@@ -118,7 +118,6 @@ namespace WorkingWithEFCore
 
                     Write("Enter a product price: ");
                     input = ReadLine();
-
                 } while (!int.TryParse(input, out price));
 
                 IQueryable<Product> prods = db.Products.Where(product => product.Cost > price).OrderByDescending(product => product.Cost);
@@ -183,7 +182,6 @@ namespace WorkingWithEFCore
                 }
             }
         }
-
         static bool IncreaseProductPrice(string name, double amount)
         {
             using (var db = new Northwind())
@@ -197,7 +195,6 @@ namespace WorkingWithEFCore
                 return (affected == 1);
             }
         }
-
         static int DeleteProducts(string name)
         {
             using (var db = new Northwind())

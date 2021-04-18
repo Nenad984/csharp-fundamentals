@@ -106,7 +106,6 @@ namespace WritingFunctions
             {
                 WriteLine("You did not enter a valid amount!");
             }
-
         }
 
         /// <summary>

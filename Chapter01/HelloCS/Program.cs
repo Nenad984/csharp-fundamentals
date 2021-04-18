@@ -11,7 +11,6 @@ namespace HelloCS
             var person = new Person("Nenad", 25);
 
             Console.WriteLine(person.Name);
-
         }
 
         public record Person(string Name, int Age);
