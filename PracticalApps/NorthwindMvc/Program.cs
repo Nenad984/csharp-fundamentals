@@ -21,7 +21,7 @@ namespace NorthwindMvc
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://0.0.0.0:5000/");
+                    webBuilder.UseUrls("http://0.0.0.0:5000/", "http://localhost:5000", "https://localhost:5001");
                 });
     }
 }
