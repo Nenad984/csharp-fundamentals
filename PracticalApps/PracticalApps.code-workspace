@@ -8,6 +8,15 @@
     },
     {
       "path": "NorthwindWeb"
+    },
+    {
+      "path": "NorthwindService"
+    },
+    {
+      "path": "NorthwindMvc"
+    },
+    {
+      "path": "NorthwindEmployees"
     }
   ],
   "settings": {}
