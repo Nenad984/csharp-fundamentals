@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NorthwindMvc.Models;
 using MyLibrary.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace NorthwindMvc.Controllers
 {
@@ -42,6 +43,67 @@ namespace NorthwindMvc.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult ProductDetail(int? id)
+        {
+            if(!id.HasValue)
+            {
+                return NotFound("You must pass a product ID in the route, for example, /Home/ProductDetail/21");
+            }
+
+            var model = db.Products.SingleOrDefault(p => p.ProductID == id);
+
+            if(model == null)
+            {
+                return NotFound($"Product with ID of {id} not found.");
+            }
+
+            return View(model);
+        }
+
+
+        public IActionResult ModelBinding()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ModelBinding(Thing thing)
+        {
+            //return View(thing);
+            var model = new HomeModelBindingViewModel
+            {
+                Thing = thing,
+                HasErrors = !ModelState.IsValid,
+                ValidationErrors = ModelState.Values
+                    .SelectMany(state => state.Errors)
+                    .Select(error => error.ErrorMessage)
+            };
+
+            return View(model);
+        }
+
+        public IActionResult ProductsThatCostMoreThan(decimal? price)
+        {
+            if (!price.HasValue)
+            {
+                return NotFound("You must pass a product price in the query string, for example, /Home/ProductsThatCostMoreThan?price=50");
+            }
+
+            IEnumerable<Product> model = db.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .AsEnumerable() // switch to client-side
+                .Where(p => p.UnitPrice > price);
+
+           if (model.Count() == 0)
+           {
+               return NotFound($"No products cost more than {price:C}.");           
+           } 
+
+           ViewData["MaxPrice"] = price.Value.ToString("C");
+           return View(model);    
         }
     }
 }

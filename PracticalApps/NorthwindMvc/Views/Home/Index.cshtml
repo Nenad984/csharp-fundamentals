@@ -31,6 +31,13 @@
     {
       currentItem = "";
     }
+
+    <form asp-action="ProductsThatCostMoreThan" method="get">
+        <input name="price"
+        placeholder="Enter a product price" />
+        <input type="submit" />
+    </form>
+    
     <div class="carousel-item @currentItem">
       <img class="d-block w-100" 
 src="~/images/category@(Model.Categories[c].CategoryID).jpeg" 
