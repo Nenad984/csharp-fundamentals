@@ -2,7 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/nenad984/csharp-fundamentals/badge)](https://www.codefactor.io/repository/github/nenad984/csharp-fundamentals)
 
-``` csharp 
+``` javascript 
 // registration with an implementation of IMovieDbSettings
 //, i.e., public class YourMovieDbSettings : IMoveDbSettings { // implementation }
 MovieDbFactory.RegisterSettings( new YourMovieDbSettings() )
